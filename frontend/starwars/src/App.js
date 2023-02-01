@@ -1,26 +1,17 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import getCharacters from "./fetchCharacters";
-import Card from "./components/Card";
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import Home from "./components/Home";
 
 const App = () => {
   const [characters, setCharacters] = useState();
 
   useEffect(() => {
-    const apiReturn = async () => {
-      const result = await getCharacters();
-      console.log(result);
-      setCharacters(result);
-    };
-    apiReturn();
-  }, []);
-
   return (
-    <div>
-      {characters &&
-        characters.length > 0 &&
-        characters.map((char) => <Card char={char} key={char.name} />)}
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
