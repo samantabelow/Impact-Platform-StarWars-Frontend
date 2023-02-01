@@ -1,23 +1,14 @@
-import { useState, useEffect } from "react";
-import getCharacters from "../fetchCharacters";
+import { useContext } from "react";
+import CharactersContext from "../context/CharactersContext";
 import Card from "./Card";
 
 const Home = () => {
-  const [characters, setCharacters] = useState();
-
-  useEffect(() => {
-    const apiReturn = async () => {
-      const result = await getCharacters();
-      setCharacters(result);
-    };
-    apiReturn();
-  }, []);
-
+  const characters = useContext(CharactersContext);
   return (
     <div>
-      {characters &&
-        characters.length > 0 &&
-        characters.map((char) => <Card char={char} key={char.name} />)}
+      {characters.map((char) => (
+        <Card char={char} key={char.name} />
+      ))}
     </div>
   );
 };
