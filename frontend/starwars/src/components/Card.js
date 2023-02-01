@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ char }) => {
   const { name, gender, films, species } = char;
   return (
-    <div>
+    <Link to={`/${name}`}>
       <p>{name}</p>
       <p>{gender}</p>
-      <p>{species}</p>
       <p>{films}</p>
-    </div>
+      <p>{species}</p>
+    </Link>
   );
 };
 

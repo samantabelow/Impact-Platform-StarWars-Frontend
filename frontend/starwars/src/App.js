@@ -1,17 +1,14 @@
 import "./App.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import Details from "./components/Details";
 
 const App = () => {
-  const [characters, setCharacters] = useState();
-
-  useEffect(() => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:characterName" element={<Details />} />
+    </Routes>
   );
 };
 

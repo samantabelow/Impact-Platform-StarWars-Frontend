@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import getCharacters from "./fetchCharacters";
-import Card from "./components/Card";
+import getCharacters from "../fetchCharacters";
+import Card from "./Card";
 
 const Home = () => {
   const [characters, setCharacters] = useState();
@@ -8,7 +8,6 @@ const Home = () => {
   useEffect(() => {
     const apiReturn = async () => {
       const result = await getCharacters();
-      console.log(result);
       setCharacters(result);
     };
     apiReturn();
