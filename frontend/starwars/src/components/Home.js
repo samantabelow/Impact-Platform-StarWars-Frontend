@@ -3,7 +3,7 @@ import CharactersContext from "../context/CharactersContext";
 import Card from "./Card";
 
 const Home = () => {
-  const characters = useContext(CharactersContext);
+  const { characters } = useContext(CharactersContext);
   return (
     <div>
       {characters.map((char) => (
